@@ -1,10 +1,13 @@
+import { Dashboard } from "./components/Dashboard";
+import { Header } from "./components/header";
 import { GlobalStyle } from "./styles/global";
 
 export function App(): JSX.Element {
   return (
-    <div className="App">
-      <h1>Hello world</h1>
+    <>
+      <Header />
+      <Dashboard />
       <GlobalStyle />
-    </div>
+    </>
   );
 }
