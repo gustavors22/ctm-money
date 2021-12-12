@@ -39,15 +39,12 @@ createServer({
     });
 
     this.post('/transactions', (schema, request) => {
-      const { title, amount, type, date, category } = JSON.parse(request.requestBody);
+      const data = JSON.parse(request.requestBody).transactionInput;
 
       const newTransaction = {
+        ...data,
         id: Date.now().toString(36) + Math.random().toString(36).substr(2),
-        title,
-        amount,
-        type,
-        date,
-        category,
+        date: Date.now(),
       }
 
       return schema.create('transaction', newTransaction);
